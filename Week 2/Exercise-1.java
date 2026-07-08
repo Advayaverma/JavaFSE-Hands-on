@@ -1,22 +1,25 @@
-package com.library;
+
+package com.example;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.library.service.BookService;
+class HelloWorld {
 
-public class LibraryManagementApplication {
+    public void display() {
+        System.out.println("Hello Spring!");
+    }
+}
+
+public class Exercise1 {
 
     public static void main(String[] args) {
 
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        BookService service =
-                context.getBean("bookService", BookService.class);
+        HelloWorld hello = context.getBean("hello", HelloWorld.class);
 
-        service.displayService();
-
-        ((ClassPathXmlApplicationContext) context).close();
+        hello.display();
     }
 }
